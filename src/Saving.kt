@@ -28,8 +28,8 @@ class Saving(val name:String, val monthlySavingAmount:Double, val desiredAmmount
         return "Saving name: $name \n" +
                 "Saving amount: ${getSavingAmount()} \n" +
                 "Desired amount: $desiredAmmount \n" +
-                "Start date: $savingStartDateTime" +
-                "Elapsed months: ${getElapsedMonths()}" +
-                "Time to reach goal: ${getMonthsToReachGoal()}"
+                "Start date: $savingStartDateTime \n" +
+                "Elapsed months: ${getElapsedMonths()} \n" +
+                "Time to reach goal: ${getMonthsToReachGoal()} \n"
     }
 }
