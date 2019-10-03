@@ -5,7 +5,7 @@ class Saving(val name:String, val monthlySavingAmount:Double, val desiredAmmount
     val savingStartDateTime = LocalDateTime.now()
     private var elapsedMonths:Int = savingStartDateTime.monthValue.toInt() - LocalDateTime.now().monthValue.toInt()
 
-    fun toSave():String{
+    fun toSaveFormat():String{
         return "$name+|$monthlySavingAmount+|$desiredAmmount+|$savingStartDateTime"
     }
 
@@ -26,7 +26,7 @@ class Saving(val name:String, val monthlySavingAmount:Double, val desiredAmmount
 
     override fun toString(): String {
         return "Saving name: $name \n" +
-                "Saving amount: ${getElapsedMonths()*monthlySavingAmount} \n" +
+                "Saving amount: ${getSavingAmount()} \n" +
                 "Desired amount: $desiredAmmount \n" +
                 "Start date: $savingStartDateTime" +
                 "Elapsed months: ${getElapsedMonths()}" +
