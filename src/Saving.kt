@@ -1,9 +1,12 @@
+import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
 
 class Saving(val name:String, val monthlySavingAmount:Double, val desiredAmmount:Double) {
-    val savingStartDateTime = LocalDateTime.now()
+    val savingStartDateTime = LocalDate.now()
     private var elapsedMonths:Int = savingStartDateTime.monthValue.toInt() - LocalDateTime.now().monthValue.toInt()
+
 
     fun toSaveFormat():String{
         return "$name+|$monthlySavingAmount+|$desiredAmmount+|$savingStartDateTime"
@@ -28,7 +31,7 @@ class Saving(val name:String, val monthlySavingAmount:Double, val desiredAmmount
         return "Saving name: $name \n" +
                 "Saving amount: ${getSavingAmount()} \n" +
                 "Desired amount: $desiredAmmount \n" +
-                "Start date: $savingStartDateTime \n" +
+                "Start date: ${savingStartDateTime} \n" +
                 "Elapsed months: ${getElapsedMonths()} \n" +
                 "Time to reach goal: ${getMonthsToReachGoal()} \n"
     }
