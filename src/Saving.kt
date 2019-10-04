@@ -2,6 +2,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
+import java.util.function.BooleanSupplier
 
 class Saving(val name:String, val monthlySavingAmount:Double, val desiredAmmount:Double) {
     val savingStartDateTime = LocalDate.now()
@@ -27,6 +28,10 @@ class Saving(val name:String, val monthlySavingAmount:Double, val desiredAmmount
         return (desiredAmmount/monthlySavingAmount).toInt()-getElapsedMonths()
     }
 
+    override fun equals(other: Any?): Boolean {
+        val otherSaving = other as Saving
+        if (otherSaving.name == name) return true else return false
+    }
     override fun toString(): String {
         return "Saving name: $name \n" +
                 "Saving amount: ${getSavingAmount()} \n" +
