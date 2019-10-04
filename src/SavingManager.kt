@@ -5,6 +5,14 @@ class SavingManager {
     {
         this.savings=savings.toMutableList()
     }
-    fun addNewSaving(newSaving:Saving) =savings.add(newSaving)
+    fun addNewSaving(newSaving:Saving)
+    {
+        if(checkExistingSavingByName(newSaving)) throw Exception("Ez a megtakarítás már létezik!") else savings.add(newSaving)
+    }
 
+
+    private fun checkExistingSavingByName(newSaving:Saving):Boolean
+    {
+        return savings.contains(newSaving)
+    }
 }
