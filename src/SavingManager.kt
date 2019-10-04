@@ -7,7 +7,8 @@ class SavingManager {
     }
     fun addNewSaving(newSaving:Saving)
     {
-        if(checkExistingSavingByName(newSaving)) throw Exception("Ez a megtakarítás már létezik!") else savings.add(newSaving)
+        if(checkExistingSavingByName(newSaving)) throw Exception("Ez a megtakarítás: ${newSaving.name} már létezik!")
+        else savings.add(newSaving)
     }
 
 
