@@ -1,11 +1,22 @@
 import java.io.File
 
-class FileManager
+class FileManager(private val fileName:String)
 {
-    var myFile = File("savings.txt")
+    private var myFile = File(fileName)
+    private var initialized:Boolean = false
 
+    fun setMyFile(fileName:String)
+    {
+        myFile= File(fileName)
+        initialized=true
+    }
+    fun IsInitialized():Boolean
+    {
+        return initialized
+    }
     fun saveDataToFile(savingsStrings:List<String>)
     {
+        myFile.delete()
         for (savingString in savingsStrings)
         {
             myFile.appendText("$savingString\n")

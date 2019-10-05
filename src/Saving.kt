@@ -10,7 +10,7 @@ class Saving(private val savingId:Int, val name:String, val monthlySavingAmount:
 
 
     fun toSaveFormat():String{
-        return "$name+|$monthlySavingAmount+|$desiredAmmount+|$savingStartDateTime"
+        return "$name|$monthlySavingAmount|$desiredAmmount|$savingStartDateTime"
     }
 
     fun getElapsedMonths():Int

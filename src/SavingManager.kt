@@ -1,12 +1,14 @@
 import Saving
 class SavingManager {
 
+    var myFileManager = FileManager("BadBoy.txt")
     var savings = mutableListOf<Saving>()
 
-    fun loadSavings(savings:List<Saving>)
+    fun InitFileManager(fileName:String)
     {
-        this.savings=savings.toMutableList()
+        myFileManager.setMyFile(fileName)
     }
+
     fun addNewSaving( name:String, monthlySavingAmount:Double, desiredAmount:Double)
     {
         val newSaving = Saving(nextId(),name,monthlySavingAmount,desiredAmount)
@@ -31,12 +33,34 @@ class SavingManager {
 
     fun getSavingsNames():List<String>
     {
+
         var savingsNames = mutableListOf<String>()
         for(saving in savings)
             {
                 savingsNames.add(saving.name)
             }
         return savingsNames
+    }
+
+    fun Save()
+    {
+        checkInitialization()
+        myFileManager.saveDataToFile(getSavingsAsString())
+    }
+
+    private fun getSavingsAsString():List<String>
+    {
+        var savingsAsString= mutableListOf<String>()
+        for (saving in savings)
+        {
+            savingsAsString.add(saving.toSaveFormat())
+        }
+        return savingsAsString
+    }
+
+    private fun checkInitialization()
+    {
+        if(myFileManager.IsInitialized()) else throw Exception("File Manager hasn't been initialized yet!")
     }
 
 
