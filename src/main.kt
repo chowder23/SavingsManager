@@ -8,6 +8,7 @@ fun main()
     {
         testSavingManagerAddNewSaving()
         testSavingManagerSave()
+        testSavingManagerLoad()
     }
     catch(exp:Exception)
     {
@@ -27,4 +28,11 @@ fun testSavingManagerSave()
     mySavingManager.addNewSaving("ház",500.0,50000.0)
     mySavingManager.InitFileManager("savings.txt")
     mySavingManager.Save()
+}
+
+fun testSavingManagerLoad()
+{
+    var mySavingManager = SavingManager()
+    mySavingManager.InitFileManager("savings.txt")
+    mySavingManager.Load()
 }
