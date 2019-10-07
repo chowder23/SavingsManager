@@ -63,5 +63,13 @@ class SavingManager {
         if(myFileManager.IsInitialized()) else throw Exception("File Manager hasn't been initialized yet!")
     }
 
-
+    fun Load()
+    {
+        checkInitialization()
+        for (line in myFileManager.loadDataFromFile())
+        {
+            var splittedLine = line.split('|')
+            addNewSaving(splittedLine[0],splittedLine[1].toDouble(),splittedLine[2].toDouble())
+        }
+    }
 }
