@@ -4,22 +4,27 @@ import java.lang.Exception
 fun main()
 {
 
-    var mySavingManager = SavingManager()
-    try {
-        mySavingManager.InitFileManager("savings.txt")
-        mySavingManager.Load()
-        //mySavingManager.addNewSaving("ház",50000.0,50000000.0)
-        //mySavingManager.addNewSaving("Ház",50000.0,15000000.0)
-        //mySavingManager.Save()
+    try
+    {
+        testSavingManagerAddNewSaving()
+        testSavingManagerSave()
     }
-    catch (exp:Exception)
+    catch(exp:Exception)
     {
         println(exp.message)
     }
-    for (name in mySavingManager.getSavingsNames())
-    {
-        println(name)
-    }
+}
 
-    //println(testSaving.toString())
+fun testSavingManagerAddNewSaving()
+{
+    var mySavingManager = SavingManager()
+    mySavingManager.addNewSaving("ház",500.0,50000.0)
+}
+
+fun testSavingManagerSave()
+{
+    var mySavingManager = SavingManager()
+    mySavingManager.addNewSaving("ház",500.0,50000.0)
+    mySavingManager.InitFileManager("savings.txt")
+    mySavingManager.Save()
 }
