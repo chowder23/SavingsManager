@@ -44,6 +44,7 @@ class Saving(private val savingId:Int, val name:String, val monthlySavingAmount:
     override fun toString(): String {
         return "Saving name: $name \n" +
                 "Saving amount: ${getSavingAmount()} \n" +
+                "Monthly saving: $monthlySavingAmount" +
                 "Desired amount: $desiredAmmount \n" +
                 "Start date: ${savingStartDateTime} \n" +
                 "Elapsed months: ${getElapsedMonths()} \n" +
