@@ -25,7 +25,7 @@ class Saving(private val savingId:Int, val name:String, val monthlySavingAmount:
 
     fun getMonthsToReachGoal():Int
     {
-        return (desiredAmmount/monthlySavingAmount).toInt()-getElapsedMonths()
+        return ((desiredAmmount-savedAmount)/monthlySavingAmount).toInt()-getElapsedMonths()
     }
 
     fun getId():Int
@@ -35,7 +35,7 @@ class Saving(private val savingId:Int, val name:String, val monthlySavingAmount:
 
     fun addToSavedAmount(amount:Double)
     {
-        savedAmount*=amount
+        savedAmount+=amount
     }
     override fun equals(other: Any?): Boolean {
         val otherSaving = other as Saving
