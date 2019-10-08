@@ -19,7 +19,7 @@ class SavingManager {
         var tmpSalary:Double = getMySalary().toDouble();
         for (saving in savings)
         {
-            tmpSalary-saving.monthlySavingAmount
+            tmpSalary-=saving.monthlySavingAmount
         }
         return tmpSalary.toInt()
     }
@@ -104,7 +104,7 @@ class SavingManager {
         allData.add("My salary: ${getMySalary()}")
         allData.add("Remaining salary: ${getRemainingSalary()}")
         allData.add("Number of savings: ${savings.count()}")
-        allData.add("Savings: ")
+        allData.add("Savings: \n")
         for (saving in savings)
         {
             allData.add(saving.toString() + "\n")
