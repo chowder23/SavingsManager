@@ -7,7 +7,7 @@ import java.util.function.BooleanSupplier
 class Saving(private val savingId:Int, val name:String, val monthlySavingAmount:Double, val desiredAmmount:Double) {
     val savingStartDateTime = LocalDate.now()
     private var elapsedMonths:Int = savingStartDateTime.monthValue.toInt() - LocalDateTime.now().monthValue.toInt()
-
+    private var savedAmount:Double=0.0
 
     fun toSaveFormat():String{
         return "$name|$monthlySavingAmount|$desiredAmmount|$savingStartDateTime"
@@ -20,7 +20,7 @@ class Saving(private val savingId:Int, val name:String, val monthlySavingAmount:
 
     fun getSavingAmount():Double
     {
-        return monthlySavingAmount*elapsedMonths
+        return monthlySavingAmount*elapsedMonths + savedAmount
     }
 
     fun getMonthsToReachGoal():Int
@@ -33,6 +33,10 @@ class Saving(private val savingId:Int, val name:String, val monthlySavingAmount:
         return savingId
     }
 
+    fun addToSavedAmount(amount:Double)
+    {
+        savedAmount*=amount
+    }
     override fun equals(other: Any?): Boolean {
         val otherSaving = other as Saving
         return otherSaving.name.toLowerCase() == name.toLowerCase()

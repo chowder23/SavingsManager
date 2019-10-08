@@ -4,6 +4,7 @@ import java.lang.Exception
 fun main()
 {
 
+<<<<<<< HEAD
     try
     {
         testSavingManagerAddNewSaving()
@@ -35,4 +36,7 @@ fun testSavingManagerLoad()
     var mySavingManager = SavingManager()
     mySavingManager.InitFileManager("savings.txt")
     mySavingManager.Load()
+=======
+   
+>>>>>>> master
 }
