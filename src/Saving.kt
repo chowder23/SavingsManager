@@ -47,6 +47,6 @@ class Saving(private val savingId:Int, val name:String, val monthlySavingAmount:
                 "Desired amount: $desiredAmmount \n" +
                 "Start date: ${savingStartDateTime} \n" +
                 "Elapsed months: ${getElapsedMonths()} \n" +
-                "Time to reach goal: ${getMonthsToReachGoal()} \n"
+                "Time to reach goal: ${getMonthsToReachGoal()}"
     }
 }
