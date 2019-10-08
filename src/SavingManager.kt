@@ -1,7 +1,28 @@
 class SavingManager {
 
+    private var mySalary:Double = 0.0
     var myFileManager = FileManager("BadBoy.txt")
     var savings = mutableListOf<Saving>()
+
+    fun setMySalary(salary:Double)
+    {
+        mySalary=salary;
+    }
+
+    fun getMySalary():Int
+    {
+        return mySalary.toInt()
+    }
+
+    fun getRemainingSalary():Int
+    {
+        var tmpSalary:Double = getMySalary().toDouble();
+        for (saving in savings)
+        {
+            tmpSalary-saving.monthlySavingAmount
+        }
+        return tmpSalary.toInt()
+    }
 
     fun InitFileManager(fileName:String)
     {
@@ -75,5 +96,19 @@ class SavingManager {
     fun addAmountToSaving(savingName:String,amount:Double)
     {
         (savings.find { it.name==savingName })?.addToSavedAmount(amount)
+    }
+
+    fun getAllData():List<String>
+    {
+        var allData = mutableListOf<String>()
+        allData.add("My salary: ${getMySalary()}")
+        allData.add("Remaining salary: ${getRemainingSalary()}")
+        allData.add("Number of savings: ${savings.count()}")
+        allData.add("Savings: ")
+        for (saving in savings)
+        {
+            allData.add(saving.toString() + "\n")
+        }
+        return allData
     }
 }
