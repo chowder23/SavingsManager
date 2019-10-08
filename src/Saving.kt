@@ -35,7 +35,7 @@ class Saving(private val savingId:Int, val name:String, val monthlySavingAmount:
 
     fun addToSavedAmount(amount:Double)
     {
-        savedAmount*=amount
+        savedAmount+=amount
     }
     override fun equals(other: Any?): Boolean {
         val otherSaving = other as Saving
