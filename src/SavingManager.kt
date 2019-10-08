@@ -1,4 +1,3 @@
-import Saving
 class SavingManager {
 
     var myFileManager = FileManager("BadBoy.txt")
@@ -71,5 +70,10 @@ class SavingManager {
             var splittedLine = line.split('|')
             addNewSaving(splittedLine[0],splittedLine[1].toDouble(),splittedLine[2].toDouble())
         }
+    }
+
+    fun addAmountToSaving(savingName:String,amount:Double)
+    {
+        (savings.find { it.name==savingName })?.addToSavedAmount(amount)
     }
 }
